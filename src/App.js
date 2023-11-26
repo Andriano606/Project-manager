@@ -3,6 +3,7 @@ import React from 'react';
 import './App.css';
 import SideBar from './components/SideBar/SideBar';
 import EmptyProjectPage from './components/EmptyProjectPage/EmptyProjectPage';
+import AddNewProjectPage from './components/AddNewProjectPage/AddNewProjectPage';
 
 function App() {
   return (
@@ -11,7 +12,8 @@ function App() {
       <SideBar/>
     </div>
     <div className='w-full h-[calc(100dvh)]'>
-      <EmptyProjectPage/>
+      {/* <EmptyProjectPage/> */}
+      <AddNewProjectPage/>
     </div>
    </div>
   );
