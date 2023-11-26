@@ -74,8 +74,12 @@ function AddNewProjectPage() {
                 value={values.email}
               />
             </div>
-            <MyDatepicker name="date"/>
-
+            <div className="mb-4">
+              <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="title">
+                DUE DATE
+              </label>
+              <MyDatepicker name="date"/>
+            </div>
           </form>
         </div>
       )}

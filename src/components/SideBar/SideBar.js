@@ -1,6 +1,7 @@
 import React from 'react';
 
 import './SideBar.css';
+import ProjectList from '../ProjectList/ProjectList'
 
 function SideBar() {
   return (
@@ -10,6 +11,9 @@ function SideBar() {
         <button type="button" className="btn btn-dark" >
             + Add Project
         </button>
+      </div>
+      <div className='mt-3 d-flex justify-content-center'>
+        <ProjectList />
       </div>
     </>
   );
