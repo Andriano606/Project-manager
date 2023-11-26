@@ -4,6 +4,7 @@ import './App.css';
 import SideBar from './components/SideBar/SideBar';
 import EmptyProjectPage from './components/EmptyProjectPage/EmptyProjectPage';
 import AddNewProjectPage from './components/AddNewProjectPage/AddNewProjectPage';
+import ProjectShowPage from './components/ProjectShowPage/ProjectShowPage';
 
 function App() {
   return (
@@ -13,7 +14,8 @@ function App() {
     </div>
     <div className='w-full h-[calc(100dvh)]'>
       {/* <EmptyProjectPage/> */}
-      <AddNewProjectPage/>
+      {/* <AddNewProjectPage/> */}
+      <ProjectShowPage/>
     </div>
    </div>
   );
