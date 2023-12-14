@@ -10,9 +10,11 @@ import { Project } from "./objects/project";
 
 function App() {
   const [projects, setProjects] = useState([])
+  const [project, setCurrentProject] = useState(null)
 
   const openEmptyPage = () => {
     setCurrentPage(<EmptyProjectPage onAddNewProjectHandler={addNewProjectHandler}/>)
+    setCurrentProject(null)
   }
 
   const deleteProgectHandler = (event) => {
@@ -24,6 +26,7 @@ function App() {
 
   const addNewProjectHandler = () => {
     setCurrentPage(<AddNewProjectPage onSaveNewProjectHandler={saveNewProjectHandler} openEmptyPageHandler={openEmptyPage}/>)
+    setCurrentProject(null)
   }
 
   const [currentPage, setCurrentPage] = useState(<EmptyProjectPage onAddNewProjectHandler={addNewProjectHandler}/>);
@@ -32,6 +35,8 @@ function App() {
     let id = Number(event.target.getAttribute('item_id'))
 
     let project = projects.find((project) => project.id === id)
+
+    setCurrentProject(project)
 
     setCurrentPage(<ProjectShowPage project={project} onDeleteProgectHandler={deleteProgectHandler}/>)
   }
@@ -52,7 +57,7 @@ function App() {
   return (
    <div className='w-full h-[calc(100dvh)] d-flex flex-row'>
     <div className='w-4/12 h-[calc(100dvh)] bg-slate-100'>
-      <SideBar onAddNewProjectHandler={addNewProjectHandler} projects={projects} onOpenProjectPageHandler={openProjectPageHandler}/>
+      <SideBar onAddNewProjectHandler={addNewProjectHandler} currentProject={project} projects={projects} onOpenProjectPageHandler={openProjectPageHandler}/>
     </div>
     <div className='w-full h-[calc(100dvh)]'>
       {currentPage}
