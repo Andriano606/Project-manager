@@ -15,6 +15,9 @@ export class Project {
   }
 
   deleteTask(id) {
+    let item = this.tasks.find((task) => task.id == id) 
+    let index = this.tasks.indexOf(item)
 
+    this.tasks.splice(index, 1)
   }
 }

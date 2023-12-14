@@ -3,12 +3,20 @@ import React, { useState } from 'react';
 import './TaskList.css';
 
 function TaskList(props) {
+  const [tasks, setTasks] = useState(props.project.tasks)
 
-  console.log(props.tasks)
-  const listItems = props.tasks.map((item) => { 
+  const remove_task_handler = (event) => {
+    let id = event.target.getAttribute('item_id')
+
+    props.project.deleteTask(id)
+  
+    setTasks(tasks.filter(item => item.id !== id))
+  }
+
+  const listItems = props.project.tasks.map((item) => { 
     return <li key={item.id} className='flex justify-between m-2'>
       {item.title}
-      <button className='btn btn-outline-danger'>
+      <button item_id={item.id} onClick={remove_task_handler} className='btn btn-outline-danger'>
         Clear
       </button>
     </li>

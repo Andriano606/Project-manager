@@ -1,4 +1,4 @@
-import { useState, React } from 'react';
+import { useState, useRef, React } from 'react';
 
 import './ProjectShowPage.css';
 import { Formik } from 'formik';
@@ -6,6 +6,8 @@ import TaskList from '../TaskList/TaskList'
 
 function ProjectShowPage(props) {
   const [tasks, setTasks] = useState(props.project.tasks)
+
+  const textInput = useRef(null)
 
   return (
    <div className="m-5">
@@ -29,6 +31,8 @@ function ProjectShowPage(props) {
           ]);
           
           props.project.addNewTasks(props.project.tasks.length, values.title)
+
+          textInput.current.value = ''
         }}
       >
       {({
@@ -38,6 +42,7 @@ function ProjectShowPage(props) {
         <form onSubmit={handleSubmit}>
           <div className="mb-5">
             <input
+              ref={textInput}
               onChange={handleChange}
               className="shadow border rounded w-50 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="title" type="text" placeholder="task name" name="title"
             />
@@ -49,7 +54,7 @@ function ProjectShowPage(props) {
       )}
       </Formik>
 
-      <TaskList tasks={tasks}/>
+      <TaskList project={props.project}/>
    </div>
   );
 }
