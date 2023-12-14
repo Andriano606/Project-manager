@@ -7,7 +7,7 @@ export class Project {
     this.description = description;
     this.date = date;
 
-    this.tasks = new Array
+    this.tasks = []
   }
 
   addNewTasks(id, title) {
@@ -15,7 +15,7 @@ export class Project {
   }
 
   deleteTask(id) {
-    let item = this.tasks.find((task) => task.id == id) 
+    let item = this.tasks.find((task) => task.id === Number(id)) 
     let index = this.tasks.indexOf(item)
 
     this.tasks.splice(index, 1)

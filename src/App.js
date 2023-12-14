@@ -18,8 +18,6 @@ function App() {
     setCurrentPage(<EmptyProjectPage onAddNewProjectHandler={addNewProjectHandler}/>)
   }
 
-  const [showProjectPage, setShowProjectPage] = useState(null);
-
   const addNewProjectHandler = () => {
     setCurrentPage(<AddNewProjectPage onSaveNewProjectHandler={saveNewProjectHandler}/>)
   }
@@ -27,9 +25,9 @@ function App() {
   const [currentPage, setCurrentPage] = useState(<EmptyProjectPage onAddNewProjectHandler={addNewProjectHandler}/>);
 
   const openProjectPageHandler = (event) => {
-    let id = event.target.getAttribute('item_id')
+    let id = Number(event.target.getAttribute('item_id'))
 
-    let project = projects.find((project) => project.id == id)
+    let project = projects.find((project) => project.id === id)
 
     setCurrentPage(<ProjectShowPage project={project} onDeleteProgectHandler={deleteProgectHandler}/>)
   }
