@@ -11,6 +11,13 @@ import { Project } from "./objects/project";
 function App() {
   const [projects, setProjects] = useState([])
 
+  const deleteProgectHandler = (event) => {
+    let id = event.target.getAttribute('item_id')
+  
+    setProjects(projects.filter(item => item.id !== id))
+    setCurrentPage(<EmptyProjectPage onAddNewProjectHandler={addNewProjectHandler}/>)
+  }
+
   const [showProjectPage, setShowProjectPage] = useState(null);
 
   const addNewProjectHandler = () => {
@@ -29,7 +36,7 @@ function App() {
       return updatedProjects;
     })
 
-    setCurrentPage(<ProjectShowPage project={newProject}/>)
+    setCurrentPage(<ProjectShowPage project={newProject} onDeleteProgectHandler={deleteProgectHandler}/>)
   }
 
   return (

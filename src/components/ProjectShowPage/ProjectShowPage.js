@@ -13,7 +13,7 @@ function ProjectShowPage(props) {
    <div className="m-5">
       <div className='flex justify-between'>
         <h1 className='text-slate-500'>{props.project.title}</h1>
-        <button type="button" className="btn btn-outline-danger" >
+        <button item_id={props.project.id} onClick={props.onDeleteProgectHandler} type="button" className="btn btn-outline-danger" >
             Delete
       </button>
       </div>
