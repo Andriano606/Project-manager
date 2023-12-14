@@ -12,7 +12,7 @@ function App() {
   const [projects, setProjects] = useState([])
 
   const deleteProgectHandler = (event) => {
-    let id = event.target.getAttribute('item_id')
+    let id = Number(event.target.getAttribute('item_id')) 
   
     setProjects(projects.filter(item => item.id !== id))
     setCurrentPage(<EmptyProjectPage onAddNewProjectHandler={addNewProjectHandler}/>)
@@ -25,6 +25,14 @@ function App() {
   }
 
   const [currentPage, setCurrentPage] = useState(<EmptyProjectPage onAddNewProjectHandler={addNewProjectHandler}/>);
+
+  const openProjectPageHandler = (event) => {
+    let id = event.target.getAttribute('item_id')
+
+    let project = projects.find((project) => project.id == id)
+
+    setCurrentPage(<ProjectShowPage project={project} onDeleteProgectHandler={deleteProgectHandler}/>)
+  }
 
   const saveNewProjectHandler = (values) => {
     let newProject = new Project(projects.length, values.title, values.description, values.date)
@@ -42,7 +50,7 @@ function App() {
   return (
    <div className='w-full h-[calc(100dvh)] d-flex flex-row'>
     <div className='w-4/12 h-[calc(100dvh)] bg-slate-100'>
-      <SideBar onAddNewProjectHandler={addNewProjectHandler} projects={projects}/>
+      <SideBar onAddNewProjectHandler={addNewProjectHandler} projects={projects} onOpenProjectPageHandler={openProjectPageHandler}/>
     </div>
     <div className='w-full h-[calc(100dvh)]'>
       {currentPage}

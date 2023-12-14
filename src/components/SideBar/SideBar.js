@@ -17,7 +17,7 @@ function SideBar(props) {
         </button>
       </div>
       <div className='mt-3 d-flex justify-content-center'>
-        <ProjectList projects={props.projects}/>
+        <ProjectList projects={props.projects} onOpenProjectPageHandler={props.onOpenProjectPageHandler}/>
       </div>
     </>
   );
