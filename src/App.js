@@ -37,7 +37,7 @@ function App() {
 
     setProjects(prevProjects => {  
       const updatedProjects = [...prevProjects];
-      updatedProjects.unshift(newProject);
+      updatedProjects.push(newProject);
       
       return updatedProjects;
     })
