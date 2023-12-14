@@ -5,7 +5,7 @@ import ProjectList from '../ProjectList/ProjectList'
 
 function SideBar(props) {
   const addNewProjectHandler = () => {
-    props.onAddNewProject(true)
+    props.onAddNewProjectHandler()
   }
 
   return (
@@ -17,7 +17,7 @@ function SideBar(props) {
         </button>
       </div>
       <div className='mt-3 d-flex justify-content-center'>
-        <ProjectList />
+        <ProjectList projects={props.projects}/>
       </div>
     </>
   );

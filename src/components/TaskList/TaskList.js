@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 
 import './TaskList.css';
 
-function TaskList() {
-  const [list, setList] = useState([{title: 'Learning React'}, {title: 'test2'}])
+function TaskList(props) {
 
-  const listItems = list.map((item) => { 
-    return <li key={item.title} className='flex justify-between m-2'>
+  console.log(props.tasks)
+  const listItems = props.tasks.map((item) => { 
+    return <li key={item.id} className='flex justify-between m-2'>
       {item.title}
       <button className='btn btn-outline-danger'>
         Clear

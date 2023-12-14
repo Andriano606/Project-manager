@@ -5,7 +5,7 @@ import { ReactComponent as Book } from '../../assets/book.svg';
 
 function EmptyProjectPage(props) {
   const addNewProjectHandler = () => {
-    props.onAddNewProject(true)
+    props.onAddNewProjectHandler()
   }
 
   return (
