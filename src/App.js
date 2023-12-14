@@ -11,15 +11,19 @@ import { Project } from "./objects/project";
 function App() {
   const [projects, setProjects] = useState([])
 
+  const openEmptyPage = () => {
+    setCurrentPage(<EmptyProjectPage onAddNewProjectHandler={addNewProjectHandler}/>)
+  }
+
   const deleteProgectHandler = (event) => {
     let id = Number(event.target.getAttribute('item_id')) 
   
     setProjects(projects.filter(item => item.id !== id))
-    setCurrentPage(<EmptyProjectPage onAddNewProjectHandler={addNewProjectHandler}/>)
+    openEmptyPage()
   }
 
   const addNewProjectHandler = () => {
-    setCurrentPage(<AddNewProjectPage onSaveNewProjectHandler={saveNewProjectHandler}/>)
+    setCurrentPage(<AddNewProjectPage onSaveNewProjectHandler={saveNewProjectHandler} openEmptyPageHandler={openEmptyPage}/>)
   }
 
   const [currentPage, setCurrentPage] = useState(<EmptyProjectPage onAddNewProjectHandler={addNewProjectHandler}/>);

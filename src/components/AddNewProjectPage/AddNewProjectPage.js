@@ -22,7 +22,7 @@ function AddNewProjectPage(props) {
         <div className='flex flex-col h-screen justify-center items-center'>
           <form onSubmit={handleSubmit} className='w-75'>
             <div className='flex justify-end mb-3 '>
-              <button className="btn btn-light">
+              <button onClick={props.openEmptyPageHandler} className="btn btn-light">
                 Cancel
               </button>
               <button className="ml-3 btn btn-dark" type="submit">
