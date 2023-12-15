@@ -9,7 +9,7 @@ function SideBar(props) {
   }
 
   return (
-    <>
+    <aside>
       <p className="mt-3 text-3xl d-flex justify-content-center">YOUR PROJECTS</p>
       <div className="d-flex justify-content-center">
         <button type="button" className="btn btn-dark" onClick={addNewProjectHandler}>
@@ -19,7 +19,7 @@ function SideBar(props) {
       <div className='mt-3 d-flex justify-content-center'>
         <ProjectList projects={props.projects} currentProject={props.currentProject} onOpenProjectPageHandler={props.onOpenProjectPageHandler}/>
       </div>
-    </>
+    </aside>
   );
 }
 
