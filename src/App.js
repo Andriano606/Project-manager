@@ -51,6 +51,8 @@ function App() {
       return updatedProjects;
     })
 
+    setCurrentProject(newProject)
+
     setCurrentPage(<ProjectShowPage project={newProject} onDeleteProgectHandler={deleteProgectHandler}/>)
   }
 
