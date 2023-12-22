@@ -61,6 +61,7 @@ function App() {
     <div className='w-4/12 h-[calc(100dvh)] bg-slate-100'>
       <SideBar onAddNewProjectHandler={addNewProjectHandler} currentProject={project} projects={projects} onOpenProjectPageHandler={openProjectPageHandler}/>
     </div>
+
     <div className='w-full h-[calc(100dvh)]'>
       {currentPage}
     </div>
