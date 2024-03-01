@@ -1,3 +1,9 @@
+# build docker
+docker pull node:16
+docker build -t project-manager-app .
+docker run -p 3000:3001 project-manager-app
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
