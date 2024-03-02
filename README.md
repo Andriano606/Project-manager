@@ -1,7 +1,7 @@
 # build docker
 docker pull node:16
 docker build -t project-manager-app .
-docker run -p 3000:3001 project-manager-app
+docker run -p 3001:3000 project-manager-app # first - host port, second - container port
 
 
 # Getting Started with Create React App
